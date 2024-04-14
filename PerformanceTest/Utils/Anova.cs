@@ -1,29 +1,26 @@
 using System;
 using MathNet.Numerics.Distributions;
+using System.Linq;
+using System.Reflection;
 
-public class Anova
+public static class Anova
 {
-    private int _alternativesCount { get; set; }
-    private int _measurementsCount { get; set; }
-    private double[]? _columnMeans { get; set; }
-    private double[][]? _measurements { get; set; }
-
-
-    public Anova() { }
-    public Anova(int alternatives, int measurements)
+    public static double[] CalculateColumnMeans(int alternatives, int measurementsCount, double[][] measurements)
     {
-        _alternativesCount = alternatives;
-        _measurementsCount = measurements;
-        _columnMeans = new double[alternatives];
-
-        _measurements = new double[alternatives][];
+        double[] columnMeans = new double[alternatives];
         for (int i = 0; i < alternatives; i++)
         {
-            _measurements[i] = new double[measurements];
+            double[] column = new double[measurementsCount];
+            for (int j = 0; j < measurementsCount; j++)
+            {
+                column[j] = measurements[j][i];
+            }
+            columnMeans[i] = CalculateColumnMean(column);
         }
+        return columnMeans;
     }
 
-    public double CalculateColumnMean(double[] column)
+    public static double CalculateColumnMean(double[] column)
     {
         double sum = 0;
         for (int i = 0; i < column.Length; i++)
@@ -33,7 +30,7 @@ public class Anova
         return sum / column.Length;
     }
 
-    public double CalculateColumnVariance(double[] column, double mean)
+    public static double CalculateColumnVariance(double[] column, double mean)
     {
         double sum = 0;
         for (int i = 0; i < column.Length; i++)
@@ -43,124 +40,174 @@ public class Anova
         return sum / column.Length;
     }
 
-    public double CalculateDeviationFromMean(double measurement, double mean)
+    public static double CalculateDeviationFromMean(double measurement, double mean)
     {
         return mean - measurement;
     }
 
-    public double CalculateTotalMean(double[] columnMeans)
+    public static double CalculateTotalMean(double[] columnMeans)
     {
         double sum = 0;
-        for (int i = 0; i < _alternativesCount; i++)
+        for (int i = 0; i < columnMeans.Length; i++)
         {
             sum += columnMeans[i];
         }
-        return sum / _alternativesCount;
+        return sum / columnMeans.Length;
     }
 
-    public double CalculateEffect(double columnMean, double totalMean)
+    public static double CalculateEffect(double columnMean, double totalMean)
     {
         return columnMean - totalMean;
     }
 
-    public double CalculateSSE()
+    public static double CalculateSSE(int alternatives, int measurementsCount, double[][] measurements, double[] columnMeans)
     {
         double sum = 0;
-        for (int i = 0; i < _alternativesCount; i++)
+        for (int i = 0; i < alternatives; i++)
         {
-            for (int j = 0; j < _measurementsCount; j++)
+            for (int j = 0; j < measurementsCount; j++)
             {
-                sum += Math.Pow(_measurements[j][i] - _columnMeans[i], 2);
+                sum += Math.Pow(measurements[j][i] - columnMeans[i], 2);
             }
         }
         return sum;
     }
 
-    public double CalculateSSA()
+    public static double CalculateSSA(int alternatives, double[] columnMeans, double totalMean, int measurementsCount)
     {
         double sum = 0;
-        for (int i = 0; i < _alternativesCount; i++)
+        for (int i = 0; i < alternatives; i++)
         {
-            sum += Math.Pow(_columnMeans[i] - CalculateTotalMean(_columnMeans), 2);
+            sum += Math.Pow(columnMeans[i] - totalMean, 2);
         }
-        return sum * _measurementsCount;
+        return sum * measurementsCount;
     }
 
-    public double CalculateSST()
+    public static double CalculateSST(int alternatives, int measurementsCount, double[][] measurements, double[] columnMeans, double totalMean)
     {
         double sum = 0;
-        for (int i = 0; i < _alternativesCount; i++)
+        for (int i = 0; i < alternatives; i++)
         {
-            for (int j = 0; j < _measurementsCount; j++)
+            for (int j = 0; j < measurementsCount; j++)
             {
-                sum += Math.Pow(_measurements[j][i] - CalculateTotalMean(_columnMeans), 2);
+                sum += Math.Pow(measurements[j][i] - totalMean, 2);
             }
         }
         return sum;
     }
 
-    public double CalculateVarianceSSA()
+    public static double CalculateVarianceSSA(double ssa, int alternatives)
     {
-        return CalculateSSA() / (_alternativesCount - 1);
+        return ssa / (alternatives - 1);
     }
 
-    public double CalculateVarianceSSE()
+    public static double CalculateVarianceSSE(double sse, int alternatives, int measurementsCount)
     {
-        return CalculateSSE() / (_alternativesCount * (_measurementsCount - 1));
+        return sse / (alternatives * (measurementsCount - 1));
     }
 
-    public double CalculateVarianceSST()
+    public static double CalculateVarianceSST(double sst, int alternatives, int measurementsCount)
     {
-        return CalculateSST() / (_alternativesCount * _measurementsCount - 1);
+        return sst / ((alternatives * measurementsCount) - 1);
     }
 
-    public double CalculateF()
+    public static double CalculateF(double varianceSsa, double varianceSse)
     {
-        return CalculateVarianceSSA() / CalculateVarianceSSE();
+        return varianceSsa / varianceSse;
     }
 
-    public double TabulatedF(int degreesOfFreedom1, int degreesOfFreedom2, double probability = 0.95)
+    public static double TabulatedF(int degreesOfFreedom1, int degreesOfFreedom2, double probability = 0.95)
     {
         if (probability >= 1)
         {
             probability = 0.95;
         }
 
-
-        double tableValue = FisherSnedecor.InvCDF(degreesOfFreedom1, degreesOfFreedom2, probability);
-        return tableValue;
+        return FisherSnedecor.InvCDF(degreesOfFreedom1, degreesOfFreedom2, probability);
     }
 
-    public AnovaSummary CalculateSummary(string path)
+    public static AnovaSummary CalculateSummary(string path)
     {
-        _measurements = FileUtils.ReadCSV("measurements.csv");
-        for (int i = 0; i < _alternativesCount; i++)
-        {
-            for (int j = 0; j < _measurementsCount; j++)
-            {
-                Console.WriteLine(_measurements[i][j]);
-            }
-        }
-        _alternativesCount = _measurements[0].Length;
-        _measurementsCount = _measurements.Length;
-        _columnMeans = new double[_alternativesCount];
+        double[][] measurements = FileUtils.ReadCSV(path);
+        int measurementsCount = measurements.Length;
+        int alternatives = measurements[0].Length;
+        return CalculateSummary(alternatives, measurementsCount, measurements);
+    }
+    public static AnovaSummary CalculateSummary(int alternatives, int measurementsCount, double[][] measurements)
+    {
+        double[] columnMeans = CalculateColumnMeans(alternatives, measurementsCount, measurements);
+        double totalMean = CalculateTotalMean(columnMeans);
+        double ssa = CalculateSSA(alternatives, columnMeans, totalMean, measurementsCount);
+        double sse = CalculateSSE(alternatives, measurementsCount, measurements, columnMeans);
+        double sst = CalculateSST(alternatives, measurementsCount, measurements, columnMeans, totalMean);
+        double varianceSsa = CalculateVarianceSSA(ssa, alternatives);
+        double varianceSse = CalculateVarianceSSE(sse, alternatives, measurementsCount);
+        double varianceSst = CalculateVarianceSST(sst, alternatives, measurementsCount);
+        double fValue = CalculateF(varianceSsa, varianceSse);
+        double tabulatedF = TabulatedF(alternatives - 1, alternatives * (measurementsCount - 1));
 
-        for (int i = 0; i < _alternativesCount; i++)
+        return new AnovaSummary(new double[] { ssa, sse, sst }, new double[] { alternatives - 1, alternatives * (measurementsCount - 1), (alternatives * measurementsCount) - 1 },
+            new double[] { varianceSsa, varianceSse, varianceSst }, fValue, tabulatedF);
+    }
+
+    public static double CalculateContrast(string path, int system1, int system2)
+    {
+        double[][] measurements = FileUtils.ReadCSV(path);
+        return CalculateContrast(system1, system2, measurements);
+    }
+    public static double CalculateContrast(int system1, int system2, double[][] measurements)
+    {
+        int measurementsCount = measurements.Length;
+        int alternatives = measurements[0].Length;
+
+        double[] columnMeans = CalculateColumnMeans(alternatives, measurementsCount, measurements);
+        double totalMean = CalculateTotalMean(columnMeans);
+
+        double[] effects = new double[alternatives];
+
+        for (int i = 0; i < alternatives; i++)
         {
-            double[] column = new double[_measurementsCount];
-            for (int j = 0; j < _measurementsCount; j++)
-            {
-                column[j] = _measurements[j][i];
-            }
-            _columnMeans[i] = CalculateColumnMean(column);
+            effects[i] = CalculateEffect(columnMeans[i], totalMean);
         }
 
-        return new AnovaSummary(
-            new double[] { CalculateSSA(), CalculateSSE(), CalculateSST() },
-            new double[] { _alternativesCount - 1, _alternativesCount * (_measurementsCount - 1), _alternativesCount * _measurementsCount - 1 },
-            new double[] { CalculateVarianceSSA(), CalculateVarianceSSE() },
-            CalculateF(),
-            TabulatedF(_alternativesCount - 1, _alternativesCount * (_measurementsCount - 1))
-        );
+        double c1 = effects[system1 - 1];
+        double c2 = effects[system2 - 1];
+        double contrast = c1 - c2;
+
+        return contrast;
+    }
+
+    public static Tuple<double, double> CalculateContrastInterval(string path, int system1, int system2, double probability = 0.95)
+    {
+        double[][] measurements = FileUtils.ReadCSV(path);
+        return CalculateContrastInterval(measurements, system1, system2, probability);
+    }
+
+    public static Tuple<double, double> CalculateContrastInterval(double[][] measurements, int system1, int system2, double probability = 0.95)
+    {
+        double contrast = CalculateContrast(system1, system2, measurements);
+        int measurementsCount = measurements.Length;
+        int alternatives = measurements[0].Length;
+
+        double varianceSSE = CalculateVarianceSSE(CalculateSSE(alternatives, measurementsCount, measurements, CalculateColumnMeans(alternatives, measurementsCount, measurements)), alternatives, measurementsCount);
+
+        if (probability >= 1)
+        {
+            probability = 0.95;
+        }
+        double alpha = 1 - probability;
+        double dof = alternatives * (measurementsCount - 1);
+
+        double t = StudentT.InvCDF(location: 0.0, scale: 1.0, freedom: dof, p: alpha);
+
+        double interval = Math.Sqrt(2 * varianceSSE / (alternatives * measurementsCount));
+        if (contrast > 0)
+        {
+            return new Tuple<double, double>(contrast - interval * t, contrast + interval * t);
+        }
+        else
+        {
+            return new Tuple<double, double>(contrast + interval * t, contrast - interval * t);
+        }
     }
 }

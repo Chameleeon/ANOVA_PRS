@@ -22,3 +22,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/ResultsWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/SimulationWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

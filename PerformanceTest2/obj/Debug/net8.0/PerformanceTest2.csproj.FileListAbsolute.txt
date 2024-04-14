@@ -1,0 +1,13 @@
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/PerformanceTest2.csproj.AssemblyReference.cache
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/Avalonia/resources
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/PerformanceTest2.GeneratedMSBuildEditorConfig.editorconfig
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/PerformanceTest2.AssemblyInfoInputs.cache
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/PerformanceTest2.AssemblyInfo.cs
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/PerformanceTest2.csproj.CoreCompileInputs.cache
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/PerformanceTest2.sourcelink.json
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/Avalonia/references
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/Avalonia/original.dll
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/Avalonia/original.pdb
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/Avalonia/original.ref.dll
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest2/obj/Debug/net8.0/refint/PerformanceTest2.dll

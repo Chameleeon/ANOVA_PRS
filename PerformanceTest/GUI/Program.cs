@@ -11,13 +11,8 @@ class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        // BuildAvaloniaApp()
-        // .StartWithClassicDesktopLifetime(args);
-
-        Anova an = new Anova();
-        AnovaSummary sum = an.CalculateSummary("measurements.csv");
-
-        sum.ToString();
+        BuildAvaloniaApp()
+        .StartWithClassicDesktopLifetime(args);
 
     }
 

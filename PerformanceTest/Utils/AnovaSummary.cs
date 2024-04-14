@@ -1,27 +1,30 @@
 using System;
+using System.Dynamic;
 public class AnovaSummary
 {
-    double[] _sumOfSquares = new double[3];
-    double[] _degsOfFreedom = new double[3];
-    double[] _meanSquares = new double[2];
-    double _computedF;
-    double _tabulatedF;
+    public double[] SumOfSquares { get; set; } = new double[3];
+    public double[] DegsOfFreedom { get; set; } = new double[3];
+    public double[] MeanSquares { get; set; } = new double[2];
+    public double ComputedF { get; set; }
+    public double TabulatedF { get; set; }
 
     public AnovaSummary(double[] sumOfSquares, double[] degsOfFreedom, double[] meanSquares, double computedF, double tabulatedF)
     {
-        _sumOfSquares = sumOfSquares;
-        _degsOfFreedom = degsOfFreedom;
-        _meanSquares = meanSquares;
-        _computedF = computedF;
-        _tabulatedF = tabulatedF;
+        SumOfSquares = sumOfSquares;
+        DegsOfFreedom = degsOfFreedom;
+        MeanSquares = meanSquares;
+        ComputedF = computedF;
+        TabulatedF = tabulatedF;
     }
 
-    public void ToString()
+    public override string ToString()
     {
-        Console.WriteLine("Sum of squares: " + _sumOfSquares[0] + ", " + _sumOfSquares[1] + ", " + _sumOfSquares[2]);
-        Console.WriteLine("Degrees of freedom: " + _degsOfFreedom[0] + ", " + _degsOfFreedom[1] + ", " + _degsOfFreedom[2]);
-        Console.WriteLine("Mean squares: " + _meanSquares[0] + ", " + _meanSquares[1]);
-        Console.WriteLine("Computed F: " + _computedF);
-        Console.WriteLine("Tabulated F: " + _tabulatedF);
+        string str = "";
+        str += ("Sum of squares: " + SumOfSquares[0] + ", " + SumOfSquares[1] + ", " + SumOfSquares[2]);
+        str += ("\nDegrees of freedom: " + DegsOfFreedom[0] + ", " + DegsOfFreedom[1] + ", " + DegsOfFreedom[2]);
+        str += ("\nMean squares: " + MeanSquares[0] + ", " + MeanSquares[1]);
+        str += ("\nComputed F: " + ComputedF);
+        str += ("\nTabulated F: " + TabulatedF);
+        return str;
     }
 }
