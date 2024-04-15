@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "k4Y7F2Lgjif1Gi9bytKKkFberdFASDuanrVQ8klMybAyqZwjcIPB64Ok9zyd7qyPT1coK7dMguWAaL1/lnLrog==",
+  "dgSpecHash": "fow3KySmeaZhxqDYB5tJZp/WokL86aVbiD4jFeZkIEr1WUCVZvXOl2Wzhgi9WBFVT7d0UrOwNvym6daDnG7ekg==",
   "success": true,
   "projectFilePath": "/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/PerformanceTest.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "/home/archy/.nuget/packages/avalonia.buildservices/0.0.29/avalonia.buildservices.0.0.29.nupkg.sha512",
     "/home/archy/.nuget/packages/avalonia.controls.colorpicker/11.0.10/avalonia.controls.colorpicker.11.0.10.nupkg.sha512",
     "/home/archy/.nuget/packages/avalonia.controls.datagrid/11.0.10/avalonia.controls.datagrid.11.0.10.nupkg.sha512",
+    "/home/archy/.nuget/packages/avalonia.controls.treedatagrid/11.0.0/avalonia.controls.treedatagrid.11.0.0.nupkg.sha512",
     "/home/archy/.nuget/packages/avalonia.desktop/11.0.10/avalonia.desktop.11.0.10.nupkg.sha512",
     "/home/archy/.nuget/packages/avalonia.diagnostics/11.0.10/avalonia.diagnostics.11.0.10.nupkg.sha512",
     "/home/archy/.nuget/packages/avalonia.fonts.inter/11.0.10/avalonia.fonts.inter.11.0.10.nupkg.sha512",
@@ -53,6 +54,7 @@
     "/home/archy/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/home/archy/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
     "/home/archy/.nuget/packages/system.objectmodel/4.3.0/system.objectmodel.4.3.0.nupkg.sha512",
+    "/home/archy/.nuget/packages/system.reactive/5.0.0/system.reactive.5.0.0.nupkg.sha512",
     "/home/archy/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
     "/home/archy/.nuget/packages/system.reflection.emit/4.3.0/system.reflection.emit.4.3.0.nupkg.sha512",
     "/home/archy/.nuget/packages/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",

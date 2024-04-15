@@ -7,14 +7,16 @@ public class AnovaSummary
     public double[] MeanSquares { get; set; } = new double[2];
     public double ComputedF { get; set; }
     public double TabulatedF { get; set; }
+    public double[] Effects { get; set; }
 
-    public AnovaSummary(double[] sumOfSquares, double[] degsOfFreedom, double[] meanSquares, double computedF, double tabulatedF)
+    public AnovaSummary(double[] sumOfSquares, double[] degsOfFreedom, double[] meanSquares, double computedF, double tabulatedF, double[] effects)
     {
         SumOfSquares = sumOfSquares;
         DegsOfFreedom = degsOfFreedom;
         MeanSquares = meanSquares;
         ComputedF = computedF;
         TabulatedF = tabulatedF;
+        Effects = effects;
     }
 
     public override string ToString()

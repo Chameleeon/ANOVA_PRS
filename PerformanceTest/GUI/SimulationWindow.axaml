@@ -14,7 +14,7 @@
                 <Menu HorizontalAlignment="Center" Margin="0,200,0,0">
                     <MenuItem Header="Input Options" FontSize="20" Foreground="White">
                         <MenuItem Header="File" Click="OpenFile_Click"/>
-                        <MenuItem Header="Manual"/>
+                        <MenuItem Header="Manual" Click="ManualEntry_Click"/>
                     </MenuItem>
                 </Menu>
                 <TextBlock x:Name="SelectedFilesTextBlock" Text="Selected File:" 

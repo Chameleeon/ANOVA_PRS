@@ -136,6 +136,19 @@
           }
         }
       },
+      "Avalonia.Controls.TreeDataGrid/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.0.0",
+          "System.Reactive": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Avalonia.Controls.TreeDataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Avalonia.Controls.TreeDataGrid.dll": {}
+        }
+      },
       "Avalonia.Desktop/11.0.10": {
         "type": "package",
         "dependencies": {
@@ -1046,6 +1059,22 @@
           "lib/netstandard1.3/System.ObjectModel.dll": {}
         }
       },
+      "System.Reactive/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net5.0/_._": {}
+        }
+      },
       "System.Reflection/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1587,6 +1616,18 @@
         "lib/net6.0/Avalonia.Controls.DataGrid.xml",
         "lib/netstandard2.0/Avalonia.Controls.DataGrid.dll",
         "lib/netstandard2.0/Avalonia.Controls.DataGrid.xml"
+      ]
+    },
+    "Avalonia.Controls.TreeDataGrid/11.0.0": {
+      "sha512": "s6ZTR6V064dpoz9MFbKHUt4PHCfMaNND3f713bjywyy+7BF4KYjGfwRJfqehfqvl/2pbadHVfmbNs43hCi7jDw==",
+      "type": "package",
+      "path": "avalonia.controls.treedatagrid/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "avalonia.controls.treedatagrid.11.0.0.nupkg.sha512",
+        "avalonia.controls.treedatagrid.nuspec",
+        "lib/net5.0/Avalonia.Controls.TreeDataGrid.dll"
       ]
     },
     "Avalonia.Desktop/11.0.10": {
@@ -3309,6 +3350,35 @@
         "system.objectmodel.nuspec"
       ]
     },
+    "System.Reactive/5.0.0": {
+      "sha512": "erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+      "type": "package",
+      "path": "system.reactive/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net5.0/_._",
+        "build/netcoreapp3.1/System.Reactive.dll",
+        "build/netcoreapp3.1/System.Reactive.targets",
+        "build/netcoreapp3.1/System.Reactive.xml",
+        "buildTransitive/net5.0/_._",
+        "buildTransitive/netcoreapp3.1/System.Reactive.targets",
+        "lib/net472/System.Reactive.dll",
+        "lib/net472/System.Reactive.xml",
+        "lib/net5.0-windows10.0.19041/System.Reactive.dll",
+        "lib/net5.0-windows10.0.19041/System.Reactive.xml",
+        "lib/net5.0/System.Reactive.dll",
+        "lib/net5.0/System.Reactive.xml",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard2.0/System.Reactive.dll",
+        "lib/netstandard2.0/System.Reactive.xml",
+        "lib/uap10.0.16299/System.Reactive.dll",
+        "lib/uap10.0.16299/System.Reactive.pri",
+        "lib/uap10.0.16299/System.Reactive.xml",
+        "system.reactive.5.0.0.nupkg.sha512",
+        "system.reactive.nuspec"
+      ]
+    },
     "System.Reflection/4.3.0": {
       "sha512": "KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==",
       "type": "package",
@@ -4396,6 +4466,8 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Avalonia >= 11.0.10",
+      "Avalonia.Controls.DataGrid >= 11.0.10",
+      "Avalonia.Controls.TreeDataGrid >= 11.0.0",
       "Avalonia.Desktop >= 11.0.10",
       "Avalonia.Diagnostics >= 11.0.10",
       "Avalonia.Fonts.Inter >= 11.0.10",
@@ -4443,6 +4515,14 @@
           "Avalonia": {
             "target": "Package",
             "version": "[11.0.10, )"
+          },
+          "Avalonia.Controls.DataGrid": {
+            "target": "Package",
+            "version": "[11.0.10, )"
+          },
+          "Avalonia.Controls.TreeDataGrid": {
+            "target": "Package",
+            "version": "[11.0.0, )"
           },
           "Avalonia.Desktop": {
             "target": "Package",

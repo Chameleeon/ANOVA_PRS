@@ -2,6 +2,7 @@
 /home/archy/.nuget/packages/avalonia.controls.colorpicker/11.0.10/lib/net6.0/Avalonia.Controls.ColorPicker.dll
 /home/archy/.nuget/packages/avalonia.controls.datagrid/11.0.10/lib/net6.0/Avalonia.Controls.DataGrid.dll
 /home/archy/.nuget/packages/avalonia/11.0.10/ref/net6.0/Avalonia.Controls.dll
+/home/archy/.nuget/packages/avalonia.controls.treedatagrid/11.0.0/lib/net5.0/Avalonia.Controls.TreeDataGrid.dll
 /home/archy/.nuget/packages/avalonia/11.0.10/ref/net6.0/Avalonia.DesignerSupport.dll
 /home/archy/.nuget/packages/avalonia.desktop/11.0.10/lib/net6.0/Avalonia.Desktop.dll
 /home/archy/.nuget/packages/avalonia.diagnostics/11.0.10/lib/net6.0/Avalonia.Diagnostics.dll
@@ -117,6 +118,7 @@
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.3/ref/net8.0/System.Numerics.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.3/ref/net8.0/System.Numerics.Vectors.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.3/ref/net8.0/System.ObjectModel.dll
+/home/archy/.nuget/packages/system.reactive/5.0.0/lib/net5.0/System.Reactive.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.3/ref/net8.0/System.Reflection.DispatchProxy.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.3/ref/net8.0/System.Reflection.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.3/ref/net8.0/System.Reflection.Emit.dll

@@ -9,6 +9,8 @@
       "PerformanceTest/1.0.0": {
         "dependencies": {
           "Avalonia": "11.0.10",
+          "Avalonia.Controls.DataGrid": "11.0.10",
+          "Avalonia.Controls.TreeDataGrid": "11.0.0",
           "Avalonia.Desktop": "11.0.10",
           "Avalonia.Diagnostics": "11.0.10",
           "Avalonia.Fonts.Inter": "11.0.10",
@@ -110,6 +112,18 @@
           "lib/net6.0/Avalonia.Controls.DataGrid.dll": {
             "assemblyVersion": "11.0.10.0",
             "fileVersion": "11.0.10.0"
+          }
+        }
+      },
+      "Avalonia.Controls.TreeDataGrid/11.0.0": {
+        "dependencies": {
+          "Avalonia": "11.0.10",
+          "System.Reactive": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/Avalonia.Controls.TreeDataGrid.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.0.0"
           }
         }
       },
@@ -749,6 +763,14 @@
           "System.Threading": "4.3.0"
         }
       },
+      "System.Reactive/5.0.0": {
+        "runtime": {
+          "lib/net5.0/System.Reactive.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.1"
+          }
+        }
+      },
       "System.Reflection/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2",
@@ -924,6 +946,13 @@
       "sha512": "sha512-a8es+nGJvXK+rh76iFRkp7UHPvaN+WeMyH7S746r25FnrBYLkvtpEjGGKRWTFX+eO2cFcDh1qHJa63aaElivww==",
       "path": "avalonia.controls.datagrid/11.0.10",
       "hashPath": "avalonia.controls.datagrid.11.0.10.nupkg.sha512"
+    },
+    "Avalonia.Controls.TreeDataGrid/11.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-s6ZTR6V064dpoz9MFbKHUt4PHCfMaNND3f713bjywyy+7BF4KYjGfwRJfqehfqvl/2pbadHVfmbNs43hCi7jDw==",
+      "path": "avalonia.controls.treedatagrid/11.0.0",
+      "hashPath": "avalonia.controls.treedatagrid.11.0.0.nupkg.sha512"
     },
     "Avalonia.Desktop/11.0.10": {
       "type": "package",
@@ -1232,6 +1261,13 @@
       "sha512": "sha512-bdX+80eKv9bN6K4N+d77OankKHGn6CH711a6fcOpMQu2Fckp/Ft4L/kW9WznHpyR0NRAvJutzOMHNNlBGvxQzQ==",
       "path": "system.objectmodel/4.3.0",
       "hashPath": "system.objectmodel.4.3.0.nupkg.sha512"
+    },
+    "System.Reactive/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+      "path": "system.reactive/5.0.0",
+      "hashPath": "system.reactive.5.0.0.nupkg.sha512"
     },
     "System.Reflection/4.3.0": {
       "type": "package",

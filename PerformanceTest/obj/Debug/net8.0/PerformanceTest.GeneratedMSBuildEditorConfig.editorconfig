@@ -20,7 +20,16 @@ build_property.EnableGeneratedComInterfaceComImportInterop =
 [/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/ContrastWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/ManualEntryWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/PopupWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/GUI/ResultsWindow.axaml]

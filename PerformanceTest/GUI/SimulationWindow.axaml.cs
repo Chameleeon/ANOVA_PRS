@@ -7,11 +7,13 @@ using Avalonia.Media.Imaging;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace PerformanceTest;
-public partial class SimulationWindow : Window{
+public partial class SimulationWindow : Window
+{
 
     private string[] _files = null;
     private Image calculateImage;
-    public SimulationWindow(){
+    public SimulationWindow()
+    {
         InitializeComponent();
         var backgroundImage = this.FindControl<Image>("Background");
         var wrenchImage = this.FindControl<Image>("Wrench");
@@ -19,51 +21,54 @@ public partial class SimulationWindow : Window{
         backgroundImage.Source = new Avalonia.Media.Imaging.Bitmap("GUI/Assets/Bg.png");
         wrenchImage.Source = new Avalonia.Media.Imaging.Bitmap("GUI/Assets/wrench.png");
         this.calculateImage.Source = new Avalonia.Media.Imaging.Bitmap("GUI/Assets/calc.png");
-        
+
         SelectedFilesTextBlock = this.FindControl<TextBlock>("SelectedFilesTextBlock");
         SelectedFilesListBox = this.FindControl<ListBox>("SelectedFilesListBox");
     }
-    private void InitializeComponent(){
-        AvaloniaXamlLoader.Load(this);        
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
     }
 
     private async void OpenFile_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
-        {
-            var openFileDialog = new OpenFileDialog();
-            var selectedFiles = await openFileDialog.ShowAsync(this);
-            _files = selectedFiles;
+    {
+        var openFileDialog = new OpenFileDialog();
+        var selectedFiles = await openFileDialog.ShowAsync(this);
+        _files = selectedFiles;
 
         if (selectedFiles != null && selectedFiles.Length > 0)
+        {
+            SelectedFilesListBox.IsVisible = true;
+            var calcButton = this.FindControl<Button>("CalcButton");
+            calcButton.IsVisible = true;
+            // Show the Selected Files text
+            SelectedFilesTextBlock.IsVisible = true;
+
+            // Clear existing items before adding new ones
+            SelectedFilesListBox.Items.Clear();
+
+            // Add the selected file names to the ListBox
+            foreach (var filePath in selectedFiles)
             {
-                SelectedFilesListBox.IsVisible = true;
-                var calcButton = this.FindControl<Button>("CalcButton");
-                calcButton.IsVisible = true;
-                // Show the Selected Files text
-                SelectedFilesTextBlock.IsVisible = true;
-
-                // Clear existing items before adding new ones
-                SelectedFilesListBox.Items.Clear();
-
-                // Add the selected file names to the ListBox
-                foreach (var filePath in selectedFiles)
-                {
-                    string fileName = Path.GetFileName(filePath);
-                    SelectedFilesListBox.Items.Add(fileName);
-                }
+                string fileName = Path.GetFileName(filePath);
+                SelectedFilesListBox.Items.Add(fileName);
             }
         }
-    private async void CalculateButton_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e){
-       AnovaSummary sum = Anova.CalculateSummary(_files[0]);
+    }
 
-        Console.WriteLine(sum.ToString());
+    private async void ManualEntry_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var popupWindow = new PopupWindow();
+        await popupWindow.ShowDialog(this);
+        this.Close();
+    }
 
-        int[] sys = { 1, 2 };
-        Tuple<double, double> interval = Anova.CalculateContrastInterval("measurements.csv", 1, 2);
-        Console.WriteLine(interval);
+    private async void CalculateButton_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        AnovaSummary sum = Anova.CalculateSummary(_files[0]);
 
-        
-        var resultsWindow = new ResultsWindow(sum);
-        
+        var resultsWindow = new ResultsWindow(sum, _files[0]);
+
         resultsWindow.Show();
 
         this.Close();

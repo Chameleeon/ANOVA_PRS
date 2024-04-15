@@ -145,16 +145,26 @@ public static class Anova
         double varianceSst = CalculateVarianceSST(sst, alternatives, measurementsCount);
         double fValue = CalculateF(varianceSsa, varianceSse);
         double tabulatedF = TabulatedF(alternatives - 1, alternatives * (measurementsCount - 1));
+        double[] effects = new double[alternatives];
+
+        for (int i = 0; i < alternatives; i++)
+        {
+            effects[i] = CalculateEffect(columnMeans[i], totalMean);
+        }
+
 
         return new AnovaSummary(new double[] { ssa, sse, sst }, new double[] { alternatives - 1, alternatives * (measurementsCount - 1), (alternatives * measurementsCount) - 1 },
-            new double[] { varianceSsa, varianceSse, varianceSst }, fValue, tabulatedF);
+            new double[] { varianceSsa, varianceSse, varianceSst }, fValue, tabulatedF, effects);
     }
+
+
 
     public static double CalculateContrast(string path, int system1, int system2)
     {
         double[][] measurements = FileUtils.ReadCSV(path);
         return CalculateContrast(system1, system2, measurements);
     }
+
     public static double CalculateContrast(int system1, int system2, double[][] measurements)
     {
         int measurementsCount = measurements.Length;
@@ -201,12 +211,13 @@ public static class Anova
         double t = StudentT.InvCDF(location: 0.0, scale: 1.0, freedom: dof, p: alpha);
 
         double interval = Math.Sqrt(2 * varianceSSE / (alternatives * measurementsCount));
-        if (contrast > 0)
+        if ((interval > 0 && t > 0) || (interval < 0 && t < 0))
         {
             return new Tuple<double, double>(contrast - interval * t, contrast + interval * t);
         }
         else
         {
+
             return new Tuple<double, double>(contrast + interval * t, contrast - interval * t);
         }
     }

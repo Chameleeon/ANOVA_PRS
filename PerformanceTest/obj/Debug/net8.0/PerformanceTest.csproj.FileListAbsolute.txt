@@ -126,3 +126,5 @@
 /home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/obj/Debug/net8.0/PerformanceTest.genruntimeconfig.cache
 /home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/obj/Debug/net8.0/ref/PerformanceTest.dll
 /home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/bin/Debug/net8.0/MathNet.Numerics.dll
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/bin/Debug/net8.0/Avalonia.Controls.TreeDataGrid.dll
+/home/archy/Documents/Programs/PRS/ANOVA_PRS/PerformanceTest/bin/Debug/net8.0/System.Reactive.dll
