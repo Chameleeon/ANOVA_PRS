@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="PerformanceTest.SimulationWindow"
+        Title="PerformanceTest" Width="800" Height="600">
+
+    <Grid>
+            <Image x:Name="Background" Stretch="UniformToFill"/>
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="OverlayText" Text="Welcome to ANOVA Performance Calculator" FontSize="35"
+                                Foreground="White" HorizontalAlignment="Center" Margin="0,50,0,50"/>
+                <Image x:Name="Wrench"  Width="200" Height="200" Stretch="Uniform"/>
+                <Menu HorizontalAlignment="Center" Margin="0,200,0,0">
+                    <MenuItem Header="Input Options" FontSize="20" Foreground="White">
+                        <MenuItem Header="File" Click="OpenFile_Click"/>
+                        <MenuItem Header="Manual" Click="ManualEntry_Click"/>
+                    </MenuItem>
+                </Menu>
+                <TextBlock x:Name="SelectedFilesTextBlock" Text="Selected File:" 
+                       HorizontalAlignment="Center" Margin="0,10,0,30" IsVisible="False" FontSize="16" Foreground="White"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <ListBox x:Name="SelectedFilesListBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="400" Height="40" IsVisible="False"/>
+                    <Button x:Name="CalcButton" Width="100" Height="100" Click="CalculateButton_Click" Margin="20,0,20,0" IsVisible="False">
+                        <Button.Content>
+                            <Image x:Name="Calc" Width="100" Height="100"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
+            <TextBlock x:Name="Version" Text="v1.0" FontSize="15"
+                            Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10"/>
+            <TextBlock x:Name="ByMe" Text="By Danilo Todorović" FontSize="15"
+                            Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,10"/>
+    </Grid>
+</Window>

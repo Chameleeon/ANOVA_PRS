@@ -1,0 +1,39 @@
+is_global = true
+build_property.AvaloniaNameGeneratorIsEnabled = true
+build_property.AvaloniaNameGeneratorBehavior = InitializeComponent
+build_property.AvaloniaNameGeneratorDefaultFieldModifier = internal
+build_property.AvaloniaNameGeneratorFilterByPath = *
+build_property.AvaloniaNameGeneratorFilterByNamespace = *
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ANOVACalculator
+build_property.ProjectDir = /home/archy/Documents/Programs/PRS/ANOVA_PRS/ANOVACalculator/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/ANOVACalculator/GUI/App.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/ANOVACalculator/GUI/ContrastWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/ANOVACalculator/GUI/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/ANOVACalculator/GUI/ManualEntryWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/ANOVACalculator/GUI/PopupWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/ANOVACalculator/GUI/ResultsWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/archy/Documents/Programs/PRS/ANOVA_PRS/ANOVACalculator/GUI/SimulationWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
